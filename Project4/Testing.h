@@ -3,7 +3,7 @@
 
 using namespace std;
 
-void Testing(); // Модульные тесты
-bool TestingEraseFromBeginning(vector <string> str); // Тестирование модуля удаления символов с начала определенной строки
-bool TestingEraseFromEnd(vector <string> str); // Тестирование модуля удаления символов с конца определенной строки
-bool TestingLowerToUpper(vector <string> str); // Тестирование модуля замены всех первых строчных букв прописными
+void Testing(); // РњРѕРґСѓР»СЊРЅС‹Рµ С‚РµСЃС‚С‹
+bool TestingEraseFromBeginning(vector <string> str); // РўРµСЃС‚РёСЂРѕРІР°РЅРёРµ РјРѕРґСѓР»СЏ СѓРґР°Р»РµРЅРёСЏ СЃРёРјРІРѕР»РѕРІ СЃ РЅР°С‡Р°Р»Р° РѕРїСЂРµРґРµР»РµРЅРЅРѕР№ СЃС‚СЂРѕРєРё
+bool TestingEraseFromEnd(vector <string> str); // РўРµСЃС‚РёСЂРѕРІР°РЅРёРµ РјРѕРґСѓР»СЏ СѓРґР°Р»РµРЅРёСЏ СЃРёРјРІРѕР»РѕРІ СЃ РєРѕРЅС†Р° РѕРїСЂРµРґРµР»РµРЅРЅРѕР№ СЃС‚СЂРѕРєРё
+bool TestingLowerToUpper(vector <string> str); // РўРµСЃС‚РёСЂРѕРІР°РЅРёРµ РјРѕРґСѓР»СЏ Р·Р°РјРµРЅС‹ РІСЃРµС… РїРµСЂРІС‹С… СЃС‚СЂРѕС‡РЅС‹С… Р±СѓРєРІ РїСЂРѕРїРёСЃРЅС‹РјРё

@@ -6,9 +6,9 @@
 #include<Windows.h>
 using namespace std;
 
-bool FileExist(string path); // Проверка существования файла
-void FileWriteData(vector <string>& text); // Вывод текста в файл
-bool ReadOnlyChecking(string path); //Функция, проверяющая, является ли файл доступным только для чтения. Принимает путь к файлу.
-bool FileCorrectChecking(string path); //Функция, проверяющая корректность файла
-bool FileReadCorrectChecking(string path); //Функция, проверяющая корректность файла, из которого считывают данные
-bool FileOpenChecking(string path); // Функция, проверяющая открытие файла
+bool FileExist(string path); // РџСЂРѕРІРµСЂРєР° СЃСѓС‰РµСЃС‚РІРѕРІР°РЅРёСЏ С„Р°Р№Р»Р°
+void FileWriteData(vector <string>& text); // Р’С‹РІРѕРґ С‚РµРєСЃС‚Р° РІ С„Р°Р№Р»
+bool ReadOnlyChecking(string path); //Р¤СѓРЅРєС†РёСЏ, РїСЂРѕРІРµСЂСЏСЋС‰Р°СЏ, СЏРІР»СЏРµС‚СЃСЏ Р»Рё С„Р°Р№Р» РґРѕСЃС‚СѓРїРЅС‹Рј С‚РѕР»СЊРєРѕ РґР»СЏ С‡С‚РµРЅРёСЏ. РџСЂРёРЅРёРјР°РµС‚ РїСѓС‚СЊ Рє С„Р°Р№Р»Сѓ.
+bool FileCorrectChecking(string path); //Р¤СѓРЅРєС†РёСЏ, РїСЂРѕРІРµСЂСЏСЋС‰Р°СЏ РєРѕСЂСЂРµРєС‚РЅРѕСЃС‚СЊ С„Р°Р№Р»Р°
+bool FileReadCorrectChecking(string path); //Р¤СѓРЅРєС†РёСЏ, РїСЂРѕРІРµСЂСЏСЋС‰Р°СЏ РєРѕСЂСЂРµРєС‚РЅРѕСЃС‚СЊ С„Р°Р№Р»Р°, РёР· РєРѕС‚РѕСЂРѕРіРѕ СЃС‡РёС‚С‹РІР°СЋС‚ РґР°РЅРЅС‹Рµ
+bool FileOpenChecking(string path); // Р¤СѓРЅРєС†РёСЏ, РїСЂРѕРІРµСЂСЏСЋС‰Р°СЏ РѕС‚РєСЂС‹С‚РёРµ С„Р°Р№Р»Р°

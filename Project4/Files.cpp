@@ -4,7 +4,7 @@
 #include <experimental/filesystem>
 using namespace std::experimental::filesystem;
 
-// Проверка существования файла
+// РџСЂРѕРІРµСЂРєР° СЃСѓС‰РµСЃС‚РІРѕРІР°РЅРёСЏ С„Р°Р№Р»Р°
 bool FileExist(string path) {
 	WIN32_FIND_DATA wfd;
 	LPCSTR pathLPC = path.c_str();
@@ -16,13 +16,13 @@ bool FileExist(string path) {
 	return false;
 }
 
-//Функция, проверяющая, является ли файл доступным только для чтения. Принимает путь к файлу.
+//Р¤СѓРЅРєС†РёСЏ, РїСЂРѕРІРµСЂСЏСЋС‰Р°СЏ, СЏРІР»СЏРµС‚СЃСЏ Р»Рё С„Р°Р№Р» РґРѕСЃС‚СѓРїРЅС‹Рј С‚РѕР»СЊРєРѕ РґР»СЏ С‡С‚РµРЅРёСЏ. РџСЂРёРЅРёРјР°РµС‚ РїСѓС‚СЊ Рє С„Р°Р№Р»Сѓ.
 bool ReadOnlyChecking(string path) {
 	LPCSTR name = path.c_str();
 	WIN32_FIND_DATAA findData;
 	FindFirstFileA(name, &findData);
 	if (findData.dwFileAttributes & FILE_ATTRIBUTE_READONLY) {
-		cout << endl << "В данный файл невозможно записать данные. Доступен только для чтения." << endl;
+		cout << endl << "Р’ РґР°РЅРЅС‹Р№ С„Р°Р№Р» РЅРµРІРѕР·РјРѕР¶РЅРѕ Р·Р°РїРёСЃР°С‚СЊ РґР°РЅРЅС‹Рµ. Р”РѕСЃС‚СѓРїРµРЅ С‚РѕР»СЊРєРѕ РґР»СЏ С‡С‚РµРЅРёСЏ." << endl;
 		return false;
 	}
 	else {
@@ -30,7 +30,7 @@ bool ReadOnlyChecking(string path) {
 	}
 }
 
-//Функция, проверяющая корректность файла
+//Р¤СѓРЅРєС†РёСЏ, РїСЂРѕРІРµСЂСЏСЋС‰Р°СЏ РєРѕСЂСЂРµРєС‚РЅРѕСЃС‚СЊ С„Р°Р№Р»Р°
 bool FileCorrectChecking(string path) {
 	int one = 1, four = 4;
 	size_t five = 5;
@@ -40,28 +40,28 @@ bool FileCorrectChecking(string path) {
 	string basefilenameStr = path.substr(found + one, base);
 	const char* basefilenameChar = basefilenameStr.c_str();
 	if (!_strcmpi(basefilenameChar, "con")) {
-		cout << endl << "Некорректное имя файла." << endl;
+		cout << endl << "РќРµРєРѕСЂСЂРµРєС‚РЅРѕРµ РёРјСЏ С„Р°Р№Р»Р°." << endl;
 		return false;
 	}
 	if (path.size() < five) {
-		cout << endl << "Некорректное имя файла. Требуется ввести расширение файла после названия" << endl;
+		cout << endl << "РќРµРєРѕСЂСЂРµРєС‚РЅРѕРµ РёРјСЏ С„Р°Р№Р»Р°. РўСЂРµР±СѓРµС‚СЃСЏ РІРІРµСЃС‚Рё СЂР°СЃС€РёСЂРµРЅРёРµ С„Р°Р№Р»Р° РїРѕСЃР»Рµ РЅР°Р·РІР°РЅРёСЏ" << endl;
 		return false;
 	}
 	if (path.substr(path.size() - four) != ".txt") {
-		cout << endl << "Некорректный формат файла. Необходим файл формата .txt" << endl;
+		cout << endl << "РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ С„РѕСЂРјР°С‚ С„Р°Р№Р»Р°. РќРµРѕР±С…РѕРґРёРј С„Р°Р№Р» С„РѕСЂРјР°С‚Р° .txt" << endl;
 		return false;
 	}
 	if (!FileExist(path)) {
 		return true;
 	}
 	if (!is_regular_file(path)) {
-		cout << endl << "Файл не является обычным." << endl;
+		cout << endl << "Р¤Р°Р№Р» РЅРµ СЏРІР»СЏРµС‚СЃСЏ РѕР±С‹С‡РЅС‹Рј." << endl;
 		return false;
 	}
 	return true;
 }
 
-//Функция, проверяющая корректность файла, из которого считывают данные
+//Р¤СѓРЅРєС†РёСЏ, РїСЂРѕРІРµСЂСЏСЋС‰Р°СЏ РєРѕСЂСЂРµРєС‚РЅРѕСЃС‚СЊ С„Р°Р№Р»Р°, РёР· РєРѕС‚РѕСЂРѕРіРѕ СЃС‡РёС‚С‹РІР°СЋС‚ РґР°РЅРЅС‹Рµ
 bool FileReadCorrectChecking(string path) {
 	int one = 1, four = 4;
 	size_t five = 5;
@@ -71,29 +71,29 @@ bool FileReadCorrectChecking(string path) {
 	string basefilenameStr = path.substr(found + one, base);
 	const char* basefilenameChar = basefilenameStr.c_str();
 	if (!_strcmpi(basefilenameChar, "con")) {
-		cout << endl << "Некорректное имя файла." << endl;
+		cout << endl << "РќРµРєРѕСЂСЂРµРєС‚РЅРѕРµ РёРјСЏ С„Р°Р№Р»Р°." << endl;
 		return false;
 	}
 	if (path.size() < five) {
-		cout << endl << "Некорректное имя файла. Требуется ввести расширение файла после названия" << endl;
+		cout << endl << "РќРµРєРѕСЂСЂРµРєС‚РЅРѕРµ РёРјСЏ С„Р°Р№Р»Р°. РўСЂРµР±СѓРµС‚СЃСЏ РІРІРµСЃС‚Рё СЂР°СЃС€РёСЂРµРЅРёРµ С„Р°Р№Р»Р° РїРѕСЃР»Рµ РЅР°Р·РІР°РЅРёСЏ" << endl;
 		return false;
 	}
 	if (!FileExist(path)) {
-		cout << endl << "Файла по указанному пути не существует" << endl;
+		cout << endl << "Р¤Р°Р№Р»Р° РїРѕ СѓРєР°Р·Р°РЅРЅРѕРјСѓ РїСѓС‚Рё РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚" << endl;
 		return false;
 	}
 	if (path.substr(path.size() - four) != ".txt") {
-		cout << endl << "Некорректный формат файла. Необходим файл формата .txt" << endl;
+		cout << endl << "РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ С„РѕСЂРјР°С‚ С„Р°Р№Р»Р°. РќРµРѕР±С…РѕРґРёРј С„Р°Р№Р» С„РѕСЂРјР°С‚Р° .txt" << endl;
 		return false;
 	}
 	if (!is_regular_file(path)) {
-		cout << endl << "Файл не является обычным." << endl;
+		cout << endl << "Р¤Р°Р№Р» РЅРµ СЏРІР»СЏРµС‚СЃСЏ РѕР±С‹С‡РЅС‹Рј." << endl;
 		return false;
 	}
 	return true;
 }
 
-// Функция, проверяющая открытие файла
+// Р¤СѓРЅРєС†РёСЏ, РїСЂРѕРІРµСЂСЏСЋС‰Р°СЏ РѕС‚РєСЂС‹С‚РёРµ С„Р°Р№Р»Р°
 bool FileOpenChecking(string path) {
 	if (!FileExist(path)) {
 		ofstream fout;
@@ -115,7 +115,7 @@ bool FileOpenChecking(string path) {
 		return true;
 }
 
-// Вывод текста в файл
+// Р’С‹РІРѕРґ С‚РµРєСЃС‚Р° РІ С„Р°Р№Р»
 void FileWriteData(vector <string>& text) {
 	unsigned int i;
 	ofstream fout;
@@ -123,16 +123,16 @@ void FileWriteData(vector <string>& text) {
 	bool readOnlyCheck = 0;
 	bool fileCorrectCheck = 0;
 	bool fileOpenCheck = 0;
-	cout << endl << "Введите путь к файлу:" << endl;
+	cout << endl << "Р’РІРµРґРёС‚Рµ РїСѓС‚СЊ Рє С„Р°Р№Р»Сѓ:" << endl;
 	SetConsoleCP(1251);
 	cin >> path;
 	SetConsoleCP(866);
 	readOnlyCheck = ReadOnlyChecking(path);
 	fileCorrectCheck = FileCorrectChecking(path);
 	fileOpenCheck = FileOpenChecking(path);
-	while ((readOnlyCheck == false) || (fileCorrectCheck == false) || (fileOpenCheck == false)) { // Проверка корректности файла
-		cout << "Ошибка открытия файла. Пожалуйста попробуйте еще раз." << endl;
-		cout << "Введите путь к файлу:" << endl;
+	while ((readOnlyCheck == false) || (fileCorrectCheck == false) || (fileOpenCheck == false)) { // РџСЂРѕРІРµСЂРєР° РєРѕСЂСЂРµРєС‚РЅРѕСЃС‚Рё С„Р°Р№Р»Р°
+		cout << "РћС€РёР±РєР° РѕС‚РєСЂС‹С‚РёСЏ С„Р°Р№Р»Р°. РџРѕР¶Р°Р»СѓР№СЃС‚Р° РїРѕРїСЂРѕР±СѓР№С‚Рµ РµС‰Рµ СЂР°Р·." << endl;
+		cout << "Р’РІРµРґРёС‚Рµ РїСѓС‚СЊ Рє С„Р°Р№Р»Сѓ:" << endl;
 		SetConsoleCP(1251);
 		cin >> path;
 		SetConsoleCP(866);
@@ -140,25 +140,25 @@ void FileWriteData(vector <string>& text) {
 		fileCorrectCheck = FileCorrectChecking(path);
 		fileOpenCheck = FileOpenChecking(path);
 	}
-	if (FileExist(path) == true) { // Проверка существования файла
-		if (MenuReWrite() == true) { // Возможность выбора перезаписи в файл
+	if (FileExist(path) == true) { // РџСЂРѕРІРµСЂРєР° СЃСѓС‰РµСЃС‚РІРѕРІР°РЅРёСЏ С„Р°Р№Р»Р°
+		if (MenuReWrite() == true) { // Р’РѕР·РјРѕР¶РЅРѕСЃС‚СЊ РІС‹Р±РѕСЂР° РїРµСЂРµР·Р°РїРёСЃРё РІ С„Р°Р№Р»
 			fout.open(path);
-			// Вывод исходных данных в файл
+			// Р’С‹РІРѕРґ РёСЃС…РѕРґРЅС‹С… РґР°РЅРЅС‹С… РІ С„Р°Р№Р»
 			for (i = 0; i < text.size(); i++) {
 				fout << text[i] << endl;
 			}
 		}
-		else { // Отказ от перезаписи и выбор другого пути к файлу
-			cout << "Введите путь к файлу:" << endl;
+		else { // РћС‚РєР°Р· РѕС‚ РїРµСЂРµР·Р°РїРёСЃРё Рё РІС‹Р±РѕСЂ РґСЂСѓРіРѕРіРѕ РїСѓС‚Рё Рє С„Р°Р№Р»Сѓ
+			cout << "Р’РІРµРґРёС‚Рµ РїСѓС‚СЊ Рє С„Р°Р№Р»Сѓ:" << endl;
 			SetConsoleCP(1251);
 			cin >> path;
 			SetConsoleCP(866);
 			readOnlyCheck = ReadOnlyChecking(path);
 			fileCorrectCheck = FileCorrectChecking(path);
 			fileOpenCheck = FileOpenChecking(path);
-			while ((readOnlyCheck == false) || (fileCorrectCheck == false) || (fileOpenCheck == false)) { // Проверка корректности файла
-				cout << "Ошибка открытия файла. Пожалуйста попробуйте еще раз." << endl;
-				cout << "Введите путь к файлу:" << endl;
+			while ((readOnlyCheck == false) || (fileCorrectCheck == false) || (fileOpenCheck == false)) { // РџСЂРѕРІРµСЂРєР° РєРѕСЂСЂРµРєС‚РЅРѕСЃС‚Рё С„Р°Р№Р»Р°
+				cout << "РћС€РёР±РєР° РѕС‚РєСЂС‹С‚РёСЏ С„Р°Р№Р»Р°. РџРѕР¶Р°Р»СѓР№СЃС‚Р° РїРѕРїСЂРѕР±СѓР№С‚Рµ РµС‰Рµ СЂР°Р·." << endl;
+				cout << "Р’РІРµРґРёС‚Рµ РїСѓС‚СЊ Рє С„Р°Р№Р»Сѓ:" << endl;
 				SetConsoleCP(1251);
 				cin >> path;
 				SetConsoleCP(866);
@@ -166,21 +166,21 @@ void FileWriteData(vector <string>& text) {
 				fileCorrectCheck = FileCorrectChecking(path);
 				fileOpenCheck = FileOpenChecking(path);
 			}
-			while (FileExist(path) == true) { // Цикл проверки существования, перезаписи или выбора другого пути к файлу
+			while (FileExist(path) == true) { // Р¦РёРєР» РїСЂРѕРІРµСЂРєРё СЃСѓС‰РµСЃС‚РІРѕРІР°РЅРёСЏ, РїРµСЂРµР·Р°РїРёСЃРё РёР»Рё РІС‹Р±РѕСЂР° РґСЂСѓРіРѕРіРѕ РїСѓС‚Рё Рє С„Р°Р№Р»Сѓ
 				if (MenuReWrite() == true) {
 					break;
 				}
 				else {
-					cout << "Введите путь к файлу:" << endl;
+					cout << "Р’РІРµРґРёС‚Рµ РїСѓС‚СЊ Рє С„Р°Р№Р»Сѓ:" << endl;
 					SetConsoleCP(1251);
 					cin >> path;
 					SetConsoleCP(866);
 					readOnlyCheck = ReadOnlyChecking(path);
 					fileCorrectCheck = FileCorrectChecking(path);
 					fileOpenCheck = FileOpenChecking(path);
-					while ((readOnlyCheck == false) || (fileCorrectCheck == false) || (fileOpenCheck == false)) { // Проверка корректности файла
-						cout << "Ошибка открытия файла. Пожалуйста попробуйте еще раз." << endl;
-						cout << "Введите путь к файлу:" << endl;
+					while ((readOnlyCheck == false) || (fileCorrectCheck == false) || (fileOpenCheck == false)) { // РџСЂРѕРІРµСЂРєР° РєРѕСЂСЂРµРєС‚РЅРѕСЃС‚Рё С„Р°Р№Р»Р°
+						cout << "РћС€РёР±РєР° РѕС‚РєСЂС‹С‚РёСЏ С„Р°Р№Р»Р°. РџРѕР¶Р°Р»СѓР№СЃС‚Р° РїРѕРїСЂРѕР±СѓР№С‚Рµ РµС‰Рµ СЂР°Р·." << endl;
+						cout << "Р’РІРµРґРёС‚Рµ РїСѓС‚СЊ Рє С„Р°Р№Р»Сѓ:" << endl;
 						SetConsoleCP(1251);
 						cin >> path;
 						SetConsoleCP(866);
@@ -192,19 +192,19 @@ void FileWriteData(vector <string>& text) {
 			}
 			SetConsoleCP(866);
 			fout.open(path);
-			// Вывод исходных данных в файл
+			// Р’С‹РІРѕРґ РёСЃС…РѕРґРЅС‹С… РґР°РЅРЅС‹С… РІ С„Р°Р№Р»
 			for (i = 0; i < text.size(); i++) {
 				fout << text[i] << endl;
 			}
 		}
 	}
-	else { // Если файла не существует 
+	else { // Р•СЃР»Рё С„Р°Р№Р»Р° РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚ 
 		fout.open(path);
-		// Вывод исходных данных в файл
+		// Р’С‹РІРѕРґ РёСЃС…РѕРґРЅС‹С… РґР°РЅРЅС‹С… РІ С„Р°Р№Р»
 		for (i = 0; i < text.size(); i++) {
 			fout << text[i] << endl;
 		}
 	}
-	cout << endl << "Файл успешно сохранен." << endl;
+	cout << endl << "Р¤Р°Р№Р» СѓСЃРїРµС€РЅРѕ СЃРѕС…СЂР°РЅРµРЅ." << endl;
 	fout.close();
 }

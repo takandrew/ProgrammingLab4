@@ -3,8 +3,8 @@
 #include <vector>
 using namespace std;
 
-int NumInInt(); // Проверка корректности ввода значений переменной типа int
-void EraseFromBeginning(vector <string>& text, int line, int number); // Функция, удаляющая символы 
-                                               //количеством number с начала строки line
-void EraseFromEnd(vector <string>& text, int line, int number); // Функция, удаляющая символы количеством number с конца строки line
-void LowerToUpper(vector <string>& text); // Функция, заменяющая все первые строчные буквы текста прописными
+int NumInInt(); // РџСЂРѕРІРµСЂРєР° РєРѕСЂСЂРµРєС‚РЅРѕСЃС‚Рё РІРІРѕРґР° Р·РЅР°С‡РµРЅРёР№ РїРµСЂРµРјРµРЅРЅРѕР№ С‚РёРїР° int
+void EraseFromBeginning(vector <string>& text, int line, int number); // Р¤СѓРЅРєС†РёСЏ, СѓРґР°Р»СЏСЋС‰Р°СЏ СЃРёРјРІРѕР»С‹ 
+                                               //РєРѕР»РёС‡РµСЃС‚РІРѕРј number СЃ РЅР°С‡Р°Р»Р° СЃС‚СЂРѕРєРё line
+void EraseFromEnd(vector <string>& text, int line, int number); // Р¤СѓРЅРєС†РёСЏ, СѓРґР°Р»СЏСЋС‰Р°СЏ СЃРёРјРІРѕР»С‹ РєРѕР»РёС‡РµСЃС‚РІРѕРј number СЃ РєРѕРЅС†Р° СЃС‚СЂРѕРєРё line
+void LowerToUpper(vector <string>& text); // Р¤СѓРЅРєС†РёСЏ, Р·Р°РјРµРЅСЏСЋС‰Р°СЏ РІСЃРµ РїРµСЂРІС‹Рµ СЃС‚СЂРѕС‡РЅС‹Рµ Р±СѓРєРІС‹ С‚РµРєСЃС‚Р° РїСЂРѕРїРёСЃРЅС‹РјРё
